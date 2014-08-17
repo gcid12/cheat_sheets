@@ -1,23 +1,50 @@
-###The Golden Path to create a Rails Project from Scratch
+
+#The Golden Path to create a Rails Project from Scratch
+
+#### Because for new comers not everything is obvious.
+
+<br/>
+This is a proven way to install a working Rails environment Local and remote. It might debatable if it's the best way but it get you started and gives you a great understanding on how things work. Then yes of course, you might need to tweak it to make it perfect.
+
+<br/>
+
+This guide  It's divided in 2 parts:
+
+1. Setting up Local Development environment
+2. Setting up Remote Development environment
+
+Notes:
+
+-Try to follow it in order, In a lot of cases the sequence is important.
+<br/>
+
+-Rails Gurus: Pull requests are more than accepted :)
+<br/><br/>
+
+------
 
 
-----
-____
+## PART 1: Setting up Local
 
+<br/><br/>
 
-###1. XCODE
+### XCODE
 
 1. Download Xcode from AppStore
 2. Register as Developer
 3. Install Developer Tools
 
-###2. HOMEBREW
+
+
+### HOMEBREW
 
 ```
 ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 ```
-		
-###3. GIT
+
+
+
+### GIT
 
 ```
 brew install git  
@@ -45,10 +72,10 @@ Check Config
 git config -l
 ```
 
+<br/>
+### LOCAL SERVER (Dev)
 
-###4. SERVER FOR DEVELOPMENT
-
-Options:
+Server Flavors:
 
 - Apache 1 or 2
 - Apache 2 + Passenger / mod_rails
@@ -56,16 +83,21 @@ Options:
 - Lighttpd
 - Mongrel
 - WEBrick
+- Thin
 
-Reccomended: WEBrick
+Local Server basic actions:
 
-1.takes your browser request
-2.Talk with rail app
-3.return results
+1. takes your browser request
+2. Talk with rail app
+3. return results
+
+Reccomended: For Dev the default version WEBrick is fine (no action required), in case you are deploying to Heroku install thin.
 
 
 
-###5. RVM and Ruby
+<br/>
+
+### RVM & RUBY
 
 ```
 	\curl -L https://get.rvm.io | bash -s stable
@@ -89,115 +121,242 @@ ruby -v
 ```
 
 
-###7. RubyGems
+### RUBY GEMS
 
-	Rails use a lot of gems, rails its itself a Gem
-	#Gems should be pre-installed in your OSX
+Rails use a lot of gems, rails its itself a Gem
+Gems should be pre-installed in your OSX.
 	
-	#show version
-	gem -v
+show version
+
+```
+gem -v
+```
 	
-	#show where it is
-	which gem
+show where it is
+
+```
+which gem
+```
 	
-	#to see what gems you have installed
-	gem list
-
-	#to update 
-	gem update —system 
-
-
-8. Bundler (Managing Gems for Rails, it keep track of them)
-
-	gem install bundler
-
-	#Because you are using RVM you need to rehash whenever something is going to have a command line command and needs to be available.(When you need to have something that you just installed immediately )
-
-	rbenv rehash
-
-	bundle -v
-	which bundle
-
-
-9. Installing Rails
-
+to see what gems you have installed
 	
-	gem install rails --no-ri --no-rdoc
-	rails --version
+```
+gem list
+```
+
+to update 
+
+```
+gem update —system 
+```
 
 
-10. Create New Rails Appp
-	#Go where the new App will be
-	$ rails new sample_app
-	# Move inside the just created project (cd sample_app)and run it
-	$ rails server
-	#Visit the local
-	http://localhost:3000
+### BUNDLER 
+(Manage Gems for Rails, keep track of them)
 
-	#Later you need to add Gems and Migrate Databases (jump to step:)
+```
+gem install bundler
+```
+
+When you need to have something that you just installed immediately 
+
+```
+rbenv rehash
+```
+
+Bundle Version
+
+```
+bundle -v
+```
+
+Location
+
+```
+which bundle
+```
 
 
-11.ALT  You can also Clone a project from GitHub (Gems ready)
-	https://github.com/RailsApps
+###INSTALLING RAILS
 
 
-12. Set .gitIgnore
+Let's install without documentation.
 
-	go to github to find an update gitignore for your project and paste it on the root of your project.
+```	
+gem install rails --no-ri --no-rdoc
+```
+
+Checking version
+
+```
+rails --version
+```
+
+
+### NEW RAILS APP:
+#### Option 1: Create fresh App
+<br/>
+
+Go where the new App will be
+
+```
+$cd <location>
+```
+Create App
+
+```
+$ rails new my_app
+```
+
+Move inside the just created project (cd sample_app)and run it
+
+
+```
+$ cd my_app
+$ rails server
+```
+
+Visit the local in your browser
+
+```
+http://localhost:3000
+```
+
+Later you need to add Gems and Migrate Databases
+
+---
+
+#### Option 2: Clone an app from Github
+
+
+https://github.com/RailsApps
+<br/><br/><br/>
+
+---
+
+###.GITIGNORE
+
+- go to github to find an updated gitignore for your project 
+- Create a file called .gitignore in the root of your project
+- Paste the content
+
 	https://github.com/github/gitignore
+	
 
-13. SET GIT and 1st commit
-	git init
-	git add .
-	git commit -m ‘first commit’
+### GIT
+####and 1st commit
 
-14. LINK This GIT with Github  (Jump straight to 9.3 for NO first timers)
+This will happen in your computer, no Github yet
 
-	#9.1 Generate SSH Keys 
-	https://help.github.com/articles/generating-ssh-keys
+```
+git init
+```
 
-	#9.2 SetUp Git
-	https://help.github.com/articles/set-up-git
+```
+git add .
+```
 
-	#9.3 Set Remote (For this new project)
+```
+git commit -m ‘first commit’
+```
+
+
+###GITHUB 
+####Setting Github for your projects
+
+If you have SSH keys already jump to step 3
+
+
+1- Generate SSH Keys 
+
+[https://help.github.com/articles/generating-ssh-keys](https://help.github.com/articles/generating-ssh-keys)
+
+
+2-  SetUp Git
+
+
+[https://help.github.com/articles/set-up-git](https://help.github.com/articles/set-up-git)
+
+
+3- Set Remote (For this new project)
+
+```
 	git remote add origin <remote repository URL> 
-	MORE INFO: 
-	https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line 
+```
 
-	#verifies the remote
-	git remote -v     
+More info:
 
-	#9.4 Push the changes to GITHUB
-	git push origin master  
-
-
-15. Creating Remote
+[https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line) 
 	
-	#First you need to setup all the Remote Environment and give your user credentials
+---
+	
+4- Verify Remote
 
-	#Independently if its DIGITALOCEAN, Rackspace or Heroku you need to define Unix distribution and specific server configuration. Always choose UBUNTU 
-	#They will always send you via mail or on screen the first SSH password. Put attention, they won’t send it again (security reasons.)
+```
+git remote -v 
+```    
+
+5- Push the changes to GITHUB
+
+```
+git push origin master  
+```
+
+<br/><br/><br/><br/>
+
+----
+
+
+## PART 2: Setting up Remote
+
+	
+####MISSION: setup all the Remote Environment and give your user credentials
+----
+
+<br/>
+
+###CREATE SERVER
+- Independently if its DIGITALOCEAN, Rackspace or Heroku you need to define Unix distribution and specific server configuration. 
+
+- For starters UBUNTU is the best option
+
+- They will always send you via mail or on screen the first SSH password. Put attention, they won’t send it again (security reasons.)
 	
 
+###ACCESS FOR THE FIRST TIME
 
 
-16. Access to Remote as Root for the first time and change password
+Access to Remote as Root for the first time and 
 
+```
+$ ssh root@your-ip-here
+```
 
-	#Change password
-	$psswd
+Change password
 
-17. Create Admin and grant root permits:
+```
+$psswd
+```
 
-	#Create Admin and set passwords
+###CREATE ADMIN
+
+Create Admin and set passwords
+
+```
 	$adduser admin
+```
 
 
-	#Grant Sudo access to Admin
+Grant Sudo access to Admin
 	
-		
+```		
 	visudo
-	sudo visudo  #in case you exit root and logged in back as admin (recommended)
+```
+in case you exit root and logged in back as admin (recommended)
+
+```	
+	sudo visudo  
+```	
 	
 
 	#change the following:
@@ -205,199 +364,213 @@ ruby -v
 	root        ALL=(ALL:ALL) ALL
 	newuser    ALL=(ALL:ALL) ALL
 
-18. Create Group and give folder permits
+<br/><br/>
+### PERMITS
+Create Group for Admin and give folder permits
+<br/><br/>
 
 	
-	#CREATE NEW GROUP
+Create New Group
 
+```	
 	groupadd foogroup
+```	
 
+Assign Group to Folder
 
-	#ASSIGN GROUP TO FLDER
-
+```	
 	chown -R :foogroup foldername
+```	
 
+Check folder permits
 
-	#CHECK FOLDER PERMITS
-
+```	
 	ls -la foldername
+```		
 	
-	#it will look like this
+it will look like this:
+
+```	
 	drwxr-xr-x 6 gcid foogroup 4096 Jul 29 23:46 foldername
+```	
 
+Change Folder Permits
 
-	#CHANGE FOLDER PERMITS
-
+```	
 	chmod -R g+w foldername
+```		
 
-  	#INFO ABOUT A USER GROUPS
+Info about an user
 
-	id username 
+```	
+id username 
+```	
 
 
-	#ADD NON-EXISTENT USER TO A GROUP
+Option1. ADD NON-EXISTENT USER TO A GROUP
 
+```	
 	useradd -G developers newusername
-	useradd -g developers newusername
+```	
+<!--useradd -g developers newusername-->
 
-	#ADD EXISTENT USERS TO A GROUP
+Option2. ADD EXISTENT USERS TO A GROUP
 
+```	
 	usermod -g developers username
-	usermod -g developers username
+```	
+
+<br/><br/>
+
+### LOCAL MYSQL
 
 
+you need to be logged in as root, or someone with access
+
+```	
+mysql -u root -p
+```	
+
+Create Data Base for the project
+
+```	
+mysql> CREATE DATABASE myProject_DB;
+```	
 
 
-19. SET SUBLIME TEXT FOR THE ACTION:
+Create a user for this project  
 
-	Define Remote Mapping
+```	
+CREATE USER 'newuser'@'localhost' IDENTIFIED BY ‘PASSWORD’;
+```	
+	
+Grant privileges to this new user
 
+```	
+GRANT ALL PRIVILEGES ON * . * TO ‘newuser'@'localhost';
+```	
+
+
+### SUBLIME TEXT (IDE)
+Assuming you have [Sublime Text](http://www.sublimetext.com/) installed , open the folder where your project is and Right click (or CTRL click) to see contextual menu, then look for FTP/SFTP / Remote Mapping
+
+<br/><br/>
+Define Remote Mapping:
+
+```	
 	"host": " this can be the IP number or the domain in case is ready ",
     	"user": "admin",
     	"password": “XXXX”,  
    	 //"port": "22",
     
     	"remote_path": "/var/www/html",
+  ```	
+    	
 
-20. Committing changes
+### COMMITING NEW CHANGES
 	
 	git add .
 	git commit -m “Message here”
 	git push origin master 
 
 
-OTHER THINGS THAT YOU SHOULD BE DOING (SERVER):
-	- Changing the port (From 22 to other thing)
-	-Setting strict Rules to access 
-	-Creating SSH to access the server without password.
-	-Setting DNS on your new domain
-	-Setting GMAIL DNS in case you need to send out mail from your virtual server
-	-Creating SSL Certificate for your website
 
 
 
 
 
-4. INSTALL LOCAL MySQL (You might have it already, jump to next step)  
-	#Download MySQL and install it  (DMG not TAR)
-	http://dev.mysql.com/downloads/mysql/
+
+### INSTALL LOCAL MySQL 
 
 
-	#You can also do it with homebrew… don’t waste your time
+check if its installed
 
-	#check if its installed
-	$ mysql —version
+```	
+$ mysql —version
+```	
+Install it with Brew
 
-	#you might need to restart your computer to have it running.. or you can try to restart it (Don’t waste your time)
+```	
+$ brew install mysql
+```	
 
-	#Secure Root Password
-	mysqladmin -u root password
+you might need to restart your computer to have it running.. or you can try to restart it (Don’t waste your time, just restart it)
 
-	#install set MYSQL2 GEM!!!!
+Secure Root Password
 
-	gem install mysql2
+```	
+mysqladmin -u root password
+```	
 
-	#some handy commands
+install set MYSQL2 GEM
+
+```	
+gem install mysql2
+```		
+
+some handy commands:
+
+```	
 	mysql.server start
 	mysql.server restart
 	mysql.server status
+```	
 
 
 	
-	
-
-21. SET MYSQL UP FOR YOUR RAILS PROJECT
 
 
+###CONFIGURE DB IN RAILS
+/config/database.yml
 
-	#Create Database for your project, you need to be logged in as root, or someone with access
+By default you are in SQL Lite, to move to MySQL follow
+[this instructions](http://stackoverflow.com/questions/1670154/convert-a-ruby-on-rails-app-from-sqlite-to-mysql)
 
-	mysql -u root -p
+Just to be sure, regenerate the gems to be sure everything is updated
 
-	mysql> CREATE DATABASE test_db01;
+```	
+bundle install 
+```	
 
+Use RAKE to connect to DB and retrieve schema… at this point we don’t have any table created,but we know that if it doesn’t mark an error, the connection at least is good.
 
-	
-	#Create a user for this project  
+```	
+rake db:schema:dump
+```	
 
-	 CREATE USER 'newuser'@'localhost' IDENTIFIED BY ‘PASSWORD’;
-	
-	#..and grant privileges
+Important Note: It might happen that when Bundler was installing MySQL , it didn't got access to install some libraries, if you dont fix that Rake won't be possible, the whole problem is described [here](http://stackoverflow.com/questions/12812613/brew-link-mysql-did-not-complete)
 
-	GRANT ALL PRIVILEGES ON * . * TO ‘newuser'@'localhost';
+To fix it:
 
-	[k123l123a123u123n123-h123a123p123p123y123112321233123]
-
-
-22. CONFIGURE  /config/database.yml
-
-	#By default you are in SQL Lite, to move to MySQL follow this instructions:
-
-	http://stackoverflow.com/questions/1670154/convert-a-ruby-on-rails-app-from-sqlite-to-mysql
-
-
-	#Use RAKE to connect to DB and retrieve schema… at this point we don’t have any table created,
-	#but we know that if it doesn’t mark an error, the connection at least is good.
-
-
-	rake db:schema:dump
-
-
-	#IMPORTANT!!!!
-	#Before Rake, Run:  
-		bundle install 
-	#Just to be sure everything is updated…
-
-
-	#AFTER ALLMOST 2 hours of pulling my hair off, and seeing this message:
-
-
-gcid$ rake db:schema:dump
-rake aborted!
-LoadError: dlopen(/Users/gcid/.rvm/gems/ruby-2.1.2/extensions/x86_64-darwin-13/2.1.0-static/mysql2-0.3.16/mysql2/mysql2.bundle, 9): Library not loaded: libmysqlclient.18.dylib
-  Referenced from: /Users/gcid/.rvm/gems/ruby-2.1.2/extensions/x86_64-darwin-13/2.1.0-static/mysql2-0.3.16/mysql2/mysql2.bundle
-  Reason: image not found - /Users/gcid/.rvm/gems/ruby-2.1.2/extensions/x86_64-darwin-13/2.1.0-static/mysql2-0.3.16/mysql2/mysql2.bundle
-/Users/gcid/.rvm/gems/ruby-2.1.2/gems/mysql2-0.3.16/lib/mysql2.rb:8:in `require'
-/Users/gcid/.rvm/gems/ruby-2.1.2/gems/mysql2-0.3.16/lib/mysql2.rb:8:in `<top (required)>'
-/Users/gcid/.rvm/gems/ruby-2.1.2/gems/bundler-1.7.0/lib/bundler/runtime.rb:76:in `require'
-/Users/gcid/.rvm/gems/ruby-2.1.2/gems/bundler-1.7.0/lib/bundler/runtime.rb:76:in `block (2 levels) in require'
-/Users/gcid/.rvm/gems/ruby-2.1.2/gems/bundler-1.7.0/lib/bundler/runtime.rb:72:in `each'
-/Users/gcid/.rvm/gems/ruby-2.1.2/gems/bundler-1.7.0/lib/bundler/runtime.rb:72:in `block in require'
-/Users/gcid/.rvm/gems/ruby-2.1.2/gems/bundler-1.7.0/lib/bundler/runtime.rb:61:in `each'
-/Users/gcid/.rvm/gems/ruby-2.1.2/gems/bundler-1.7.0/lib/bundler/runtime.rb:61:in `require'
-/Users/gcid/.rvm/gems/ruby-2.1.2/gems/bundler-1.7.0/lib/bundler.rb:133:in `require'
-/Users/gcid/Sites/tcb/TCB_Rails/config/application.rb:7:in `<top (required)>'
-/Users/gcid/Sites/tcb/TCB_Rails/Rakefile:4:in `<top (required)>'
-(See full trace by running task with --trace)
-
-
-
-	I realize that the problem was the permissions , so Thanks to an amazing StackOverflow dude I finally solved:
-
-http://stackoverflow.com/questions/12812613/brew-link-mysql-did-not-complete
-
-	He was recommending:  
+```	
 	sudo chown -R $(whoami) /usr/local/lib/
+```	
+or
 
-	Then I tweak it to:
-
+```	
 	sudo chown -R $(whoami) /usr/local/include
+```	
 
-	And it finally worked. damn I need a beer
+If it's still not working analyze the path it's trying to reach and replace it for one of the previous solutions.
 	
 	
 	
+<br/><br/><br/>	
 	
-	----
+----
+----
 	
-	Relevant Links
+		
+###OTHER THINGS THAT YOU SHOULD BE DOING:
 	
-	More info: http://installrails.com/steps/choose_os_version
+- Changing the port (From 22 to other thing)
+- Setting strict Rules to access 
+- Creating SSH to access the server without password.
+- Setting DNS on your new domain
+- Setting GMAIL DNS in case you need to send out mail from your virtual server
+- Creating SSL Certificate for your website
 
-	
 
-
-	
 
 
 
