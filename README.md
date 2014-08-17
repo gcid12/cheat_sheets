@@ -18,7 +18,7 @@ Notes:
 -Try to follow it in order, In a lot of cases the sequence is important.
 <br/>
 
--Rails Gurus: Pull requests are more than accepted :)
+-Rails Gurus: Pull requests are more than welcome :)
 <br/><br/>
 
 ------
@@ -100,7 +100,7 @@ Reccomended: For Dev the default version WEBrick is fine (no action required), i
 ### RVM & RUBY
 
 ```
-	\curl -L https://get.rvm.io | bash -s stable
+\curl -L https://get.rvm.io | bash -s stable
 ```
 
 close terminal and reopen it, check if everything ok
@@ -123,8 +123,8 @@ ruby -v
 ---
 ### RUBY GEMS
 
-Rails use a lot of gems, rails its itself a Gem
-Gems should be pre-installed in your OSX.
+
+Gems should be pre-installed in your OSX as part of Ruby. Updating for the newest version it's a good idea
 	
 show version
 
@@ -132,13 +132,13 @@ show version
 gem -v
 ```
 	
-show where it is
+To see location
 
 ```
 which gem
 ```
 	
-to see what gems you have installed
+to see installed gems
 	
 ```
 gem list
@@ -153,13 +153,13 @@ gem update —system
 ---
 
 ### BUNDLER 
-(Manage Gems for Rails, keep track of them)
+Gems Manager for Rails.
 
 ```
 gem install bundler
 ```
 
-When you need to have something that you just installed immediately 
+Rehash to have new installations available.
 
 ```
 rbenv rehash
@@ -182,13 +182,13 @@ which bundle
 ###INSTALLING RAILS
 
 
-Let's install without documentation.
+Let's install without documentation. (It's heavy and never used)
 
 ```	
 gem install rails --no-ri --no-rdoc
 ```
 
-Checking version
+Check version
 
 ```
 rails --version
@@ -200,7 +200,7 @@ rails --version
 #### Option 1: Create fresh App
 <br/>
 
-Go where the new App will be
+Move to where the new app will be located
 
 ```
 $cd <location>
@@ -211,21 +211,25 @@ Create App
 $ rails new my_app
 ```
 
-Move inside the just created project (cd sample_app)and run it
+Move inside the just created project
 
 
 ```
-$ cd my_app
+$ rails server
+```
+run Rails server
+
+```
 $ rails server
 ```
 
-Visit the local in your browser
+See it in action in your browser
 
 ```
 http://localhost:3000
 ```
 
-Later you need to add Gems and Migrate Databases
+
 
 
 #### Option 2: Clone an app from Github
@@ -268,7 +272,7 @@ git commit -m ‘first commit’
 ###GITHUB 
 ####Setting Github for your projects
 
-If you have SSH keys already jump to step 3
+If you have SSH keys already jump straight to step 3
 
 
 1- Generate SSH Keys 
@@ -285,7 +289,7 @@ If you have SSH keys already jump to step 3
 3- Set Remote (For this new project)
 
 ```
-	git remote add origin <remote repository URL> 
+git remote add origin <remote repository URL> 
 ```
 
 More info:
@@ -351,26 +355,23 @@ $psswd
 Create Admin and set passwords
 
 ```
-	$adduser admin
+$adduser admin
 ```
 
 
 Grant Sudo access to Admin
 	
 ```		
-	visudo
+visudo
 ```
-in case you exit root and logged in back as admin (recommended)
 
-```	
-	sudo visudo  
-```	
+Change this :
 	
-
-	#change the following:
+```		
 
 	root        ALL=(ALL:ALL) ALL
 	newuser    ALL=(ALL:ALL) ALL
+```		
 
 
 ---
@@ -383,31 +384,31 @@ Create Group for Admin and give folder permits
 Create New Group
 
 ```	
-	groupadd foogroup
+groupadd foogroup
 ```	
 
 Assign Group to Folder
 
 ```	
-	chown -R :foogroup foldername
+chown -R :foogroup foldername
 ```	
 
 Check folder permits
 
 ```	
-	ls -la foldername
+ls -la foldername
 ```		
 	
 it will look like this:
 
 ```	
-	drwxr-xr-x 6 gcid foogroup 4096 Jul 29 23:46 foldername
+drwxr-xr-x 6 gcid foogroup 4096 Jul 29 23:46 foldername
 ```	
 
 Change Folder Permits
 
 ```	
-	chmod -R g+w foldername
+chmod -R g+w foldername
 ```		
 
 Info about an user
@@ -420,14 +421,14 @@ id username
 Option1. ADD NON-EXISTENT USER TO A GROUP
 
 ```	
-	useradd -G developers newusername
+useradd -G developers newusername
 ```	
 <!--useradd -g developers newusername-->
 
 Option2. ADD EXISTENT USERS TO A GROUP
 
 ```	
-	usermod -g developers username
+usermod -g developers username
 ```	
 
 ---
@@ -436,7 +437,7 @@ Option2. ADD EXISTENT USERS TO A GROUP
 ### LOCAL MYSQL
 
 
-you need to be logged in as root, or someone with access
+you need to be logged-in as root, or someone with access
 
 ```	
 mysql -u root -p
@@ -467,7 +468,7 @@ GRANT ALL PRIVILEGES ON * . * TO ‘newuser'@'localhost';
 ### SUBLIME TEXT (IDE)
 Assuming you have [Sublime Text](http://www.sublimetext.com/) installed , open the folder where your project is and Right click (or CTRL click) to see contextual menu, then look for FTP/SFTP / Remote Mapping
 
-<br/><br/>
+<br/>
 Define Remote Mapping:
 
 ```	
@@ -476,8 +477,8 @@ Define Remote Mapping:
     	"password": “XXXX”,  
    	 //"port": "22",
     
-    	"remote_path": "/var/www/html",
-  ```	
+    "remote_path": "/var/www/html",
+```	
     	
 ---
 
@@ -523,9 +524,9 @@ gem install mysql2
 some handy commands:
 
 ```	
-	mysql.server start
-	mysql.server restart
-	mysql.server status
+mysql.server start
+mysql.server restart
+mysql.server status
 ```	
 
 
@@ -551,20 +552,20 @@ Use RAKE to connect to DB and retrieve schema… at this point we don’t have a
 rake db:schema:dump
 ```	
 
-Important Note: It might happen that when Bundler was installing MySQL , it didn't got access to install some libraries, if you dont fix that Rake won't be possible, the whole problem is described [here](http://stackoverflow.com/questions/12812613/brew-link-mysql-did-not-complete)
+Important Note: A silent permit problem might occur when installing Mysql (via brew or Regular installer) the whole problem is described [here](http://stackoverflow.com/questions/12812613/brew-link-mysql-did-not-complete)
 
 To fix it:
 
 ```	
-	sudo chown -R $(whoami) /usr/local/lib/
+sudo chown -R $(whoami) /usr/local/lib/
 ```	
 or
 
 ```	
-	sudo chown -R $(whoami) /usr/local/include
+sudo chown -R $(whoami) /usr/local/include
 ```	
 
-If it's still not working analyze the path it's trying to reach and replace it for one of the previous solutions.
+If it's still not working analyze the path in the error and replace it.
 	
 	
 	
