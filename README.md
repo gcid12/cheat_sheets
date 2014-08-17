@@ -23,7 +23,6 @@ Notes:
 
 ------
 
-
 ## PART 1: Setting up Local
 
 <br/><br/>
@@ -35,6 +34,7 @@ Notes:
 3. Install Developer Tools
 
 
+---
 
 ### HOMEBREW
 
@@ -42,7 +42,7 @@ Notes:
 ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 ```
 
-
+---
 
 ### GIT
 
@@ -72,7 +72,7 @@ Check Config
 git config -l
 ```
 
-<br/>
+---
 ### LOCAL SERVER (Dev)
 
 Server Flavors:
@@ -95,7 +95,7 @@ Reccomended: For Dev the default version WEBrick is fine (no action required), i
 
 
 
-<br/>
+---
 
 ### RVM & RUBY
 
@@ -120,7 +120,7 @@ Check Ruby Version
 ruby -v
 ```
 
-
+---
 ### RUBY GEMS
 
 Rails use a lot of gems, rails its itself a Gem
@@ -150,6 +150,7 @@ to update
 gem update —system 
 ```
 
+---
 
 ### BUNDLER 
 (Manage Gems for Rails, keep track of them)
@@ -176,6 +177,7 @@ Location
 which bundle
 ```
 
+---
 
 ###INSTALLING RAILS
 
@@ -192,6 +194,7 @@ Checking version
 rails --version
 ```
 
+---
 
 ### NEW RAILS APP:
 #### Option 1: Create fresh App
@@ -224,7 +227,6 @@ http://localhost:3000
 
 Later you need to add Gems and Migrate Databases
 
----
 
 #### Option 2: Clone an app from Github
 
@@ -242,6 +244,7 @@ https://github.com/RailsApps
 
 	https://github.com/github/gitignore
 	
+---
 
 ### GIT
 ####and 1st commit
@@ -260,6 +263,7 @@ git add .
 git commit -m ‘first commit’
 ```
 
+---
 
 ###GITHUB 
 ####Setting Github for your projects
@@ -323,6 +327,8 @@ git push origin master
 - They will always send you via mail or on screen the first SSH password. Put attention, they won’t send it again (security reasons.)
 	
 
+---
+
 ###ACCESS FOR THE FIRST TIME
 
 
@@ -337,6 +343,8 @@ Change password
 ```
 $psswd
 ```
+
+---
 
 ###CREATE ADMIN
 
@@ -364,7 +372,9 @@ in case you exit root and logged in back as admin (recommended)
 	root        ALL=(ALL:ALL) ALL
 	newuser    ALL=(ALL:ALL) ALL
 
-<br/><br/>
+
+---
+
 ### PERMITS
 Create Group for Admin and give folder permits
 <br/><br/>
@@ -420,7 +430,8 @@ Option2. ADD EXISTENT USERS TO A GROUP
 	usermod -g developers username
 ```	
 
-<br/><br/>
+---
+
 
 ### LOCAL MYSQL
 
@@ -450,6 +461,8 @@ Grant privileges to this new user
 GRANT ALL PRIVILEGES ON * . * TO ‘newuser'@'localhost';
 ```	
 
+---
+
 
 ### SUBLIME TEXT (IDE)
 Assuming you have [Sublime Text](http://www.sublimetext.com/) installed , open the folder where your project is and Right click (or CTRL click) to see contextual menu, then look for FTP/SFTP / Remote Mapping
@@ -466,6 +479,7 @@ Define Remote Mapping:
     	"remote_path": "/var/www/html",
   ```	
     	
+---
 
 ### COMMITING NEW CHANGES
 	
@@ -476,9 +490,7 @@ Define Remote Mapping:
 
 
 
-
-
-
+---
 
 ### INSTALL LOCAL MySQL 
 
@@ -518,6 +530,7 @@ some handy commands:
 
 
 	
+---
 
 
 ###CONFIGURE DB IN RAILS
@@ -557,7 +570,7 @@ If it's still not working analyze the path it's trying to reach and replace it f
 	
 <br/><br/><br/>	
 	
-----
+
 ----
 	
 		
