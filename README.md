@@ -573,7 +573,13 @@ If it's still not working analyze the path in the error and replace it.
 	
 
 ----
-	
+
+##In case you commited some sensitive information
+
+1. Replace every password
+2. Erase from Cache
+3. Create .Gitignore
+
 		
 ###OTHER THINGS THAT YOU SHOULD BE DOING:
 	
