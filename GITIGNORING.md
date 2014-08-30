@@ -115,7 +115,7 @@ But removing from cache is not enough, because if you go back in the versions yo
 
 So let's do it the BFG way:
 
-####3.1 Download BFG
+####4.1 Download BFG
 
 Download BFG from the website [website](http://rtyley.github.io/bfg-repo-cleaner/)
 
@@ -130,7 +130,7 @@ $ git clone --mirror git://example.com/some-big-repo.git
 This wil be a bare repo, you won't see your files, but it have all your history
 
 
-####3.2 Run BFG 
+####3.2 DELETE FROM HISTORY 
 
 Run BFG specifying the file you want to delete:
 

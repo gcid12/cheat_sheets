@@ -434,7 +434,7 @@ usermod -g developers username
 ---
 
 
-### LOCAL MYSQL
+### MYSQL
 
 
 you need to be logged-in as root, or someone with access
@@ -460,6 +460,11 @@ Grant privileges to this new user
 
 ```	
 GRANT ALL PRIVILEGES ON * . * TO ‘newuser'@'localhost';
+```	
+
+To see Mysql accounts
+```	
+SELECT User FROM mysql.user;
 ```	
 
 ---
