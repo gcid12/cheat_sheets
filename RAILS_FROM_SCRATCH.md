@@ -405,7 +405,20 @@ it will look like this:
 drwxr-xr-x 6 gcid foogroup 4096 Jul 29 23:46 foldername
 ```	
 
+
+```	
+Read / Write / Execute
+
+d rwx rwx rwx
+
+Type - User - Group - Other
+```	
+
+
+<br/>
+
 Change Folder Permits
+
 
 ```	
 chmod -R g+w foldername
