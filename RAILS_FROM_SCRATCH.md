@@ -345,7 +345,7 @@ $ ssh root@your-ip-here
 Change password
 
 ```
-$psswd
+$passwd
 ```
 
 ---
