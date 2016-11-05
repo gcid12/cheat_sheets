@@ -1,4 +1,5 @@
-# STOMP
+## STOMP
+<hr>
 
 STOMP is a simple interoperable protocol designed for asynchronous message passing between clients via mediating servers.
 
