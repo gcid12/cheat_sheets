@@ -210,6 +210,19 @@ var subscription = client.subscribe("/queue/test",
   );
   ```
 
+NACK happen automatically as well, but `nack()` can be used to inform old STOMP implementations about the Not Acknowledgement.
+
+
+##### DEBUGGING
+The library have some flags installed in the code, if you want to listen to them get them with `debug()` and put them on an element on the DOM (using Jquery). By default they are logged on the browser console.
+
+```
+client.debug = function(str) {
+    // append the debug log to a #debug div somewhere in the page using JQuery:
+    $("#debug").append(str + "\n");
+  };
+ ```
+
 
 
 
